@@ -1,6 +1,6 @@
 # Welcome to Kaan Bilgin
 
-This is my [Progress Journal website](https://bu-ie-582.github.io/fall20-kaanblgn/) created for IE 582 course at Boğaziçi University.
+This is my Progress Journal Website created for IE 582 course at Boğaziçi University.
 
 ## Homework Assignments
 
