@@ -7,4 +7,4 @@ This is my [Progress Journal website](https://bu-ie-582.github.io/fall20-kaanblg
 There will be several homework assignments done for this course.
 
 ### Homework Assignment 0
-- [R Examples](files/homework_0.html): Summary of five interesting R examples using RMarkdown.
+- [R Examples](https://bu-ie-582.github.io/fall20-kaanblgn/files/homework_0.html): Summary of five interesting R examples using RMarkdown.
