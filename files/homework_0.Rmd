@@ -21,7 +21,7 @@ opts_chunk$set(tidy.opts=list(width.cutoff=60),tidy=TRUE)
 
 4. [Be My Guest Recruit Restaurant EDA](https://www.kaggle.com/headsortails/be-my-guest-recruit-restaurant-eda#introduction)
 
-    This example is the hardest one for me by far because of it's libraries, functions, file structure, content etc. but also the most informative one because while other selected projects mainly focus on the analysis, this project includes a challenge to predict the future numbers of restaurant visitors, dealing with time series forcasting. Data collected through two japanese websites. The project dealt with number of indices like impact of the days of the week, holidays, cuisine type, reservation vs visits, weather etc. and also ARIMA method (Autoregressive integrated moving average) usage has shown for the forecasting engineering part 
+    This example is the hardest one for me by far because of it's libraries, functions, file structure, content etc. but also the most informative one because while other selected projects mainly focus on the analysis, this project includes a challenge to predict the future numbers of restaurant visitors, dealing with time series forcasting. Data collected through two japanese websites. The project dealt with number of indices like impact of the days of the week, holidays, cuisine type, reservation vs visits, weather etc. and also ARIMA method (Autoregressive integrated moving average) usage has shown for the forecasting engineering part.
 
 5. [Analyzing Star Wars Movie Scripts](https://www.kaggle.com/xvivancos/analyzing-star-wars-movie-scripts)
 
