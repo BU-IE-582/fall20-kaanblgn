@@ -26,3 +26,12 @@ opts_chunk$set(tidy.opts=list(width.cutoff=60),tidy=TRUE)
 5. [Analyzing Star Wars Movie Scripts](https://www.kaggle.com/xvivancos/analyzing-star-wars-movie-scripts)
 
     My final interesting project for this assignment will be the text mining of Star Wars movies (original 1977 trilogy) simply because I was obsessed with Star Wars when I was a kid and seeing the wordcloud (like our first twitter example in our very first class) usage for data visualization with clear syntax of codes, reinforced my understanding heavily.
+
+
+
+
+
+
+
+
+    Press [here](https://bu-ie-582.github.io/fall20-kaanblgn/) to return to homepage.
