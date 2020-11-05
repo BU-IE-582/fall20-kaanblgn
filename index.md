@@ -7,4 +7,4 @@ This is my Progress Journal Website created for IE 582 course at Boğaziçi Univ
 There will be the assignments done for this course.
 
 ### Homework Assignment 0
-- [R Examples](https://bu-ie-582.github.io/fall20-kaanblgn/files/homework_0.html): Summary of five interesting R examples using RMarkdown.
+- [R Examples] (https://bu-ie-582.github.io/fall20-kaanblgn/files/homework_0.html): Summary of five interesting R examples using RMarkdown.
