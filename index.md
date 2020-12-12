@@ -11,3 +11,6 @@ There will be the assignments done for this course.
 
 ### Homework Assignment 1
 - [Premier League Betting Analysis](files/HW1/HW1.html): A Premier League analysis and comparison between probalistic calculating with time history data and predictions of bookmakers.
+
+### Homework Assignment 2
+- [Dimensionality Reduction of Time Series Data For Classification of uWaveGesturesLibrary](files/HW2/HW2.html)
