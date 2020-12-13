@@ -1,18 +1,40 @@
 ---
-title: "Homework1_IE582_Premiere_League_Analyse"
+title: "Premiere League Analysis"
 author: "Kaan Bilgin"
 date: "11/20/2020"
-output: html_document
+output:
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
-```{r setup, echo = TRUE}
+```{r setup,include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+# 1.Introduction
 
-## Premier League
+Sports forecasting is important for sports fans, team managers, sponsors, the media and the growing
+number of punters who bet on online platforms. Widespread demand for professional advice regarding
+the results of sporting events is met by a variety of expert forecasts, usually in the form of
+recommendations from tipsters. In addition, betting odds offer a type of predictor and source of expert
+advice regarding sports outcomes. Whereas fixed odds reflect the (expert) predictions of bookmakers,
+the odds in pari-mutuel betting markets indicate the combined expectations of all punters, which
+implies an aggregated expert prediction. Expert forecasts of sport outcomes often come from so-called ‘tipsters’, whose predictions appear in
+sports journals or daily newspapers. Tipsters are usually independent experts who do not apply a formal
+model but rather derive their predictions from their experience or intuition. They generally provide
+forecasts for only a specific selection of games, often related to betting. No immediate financial
+consequences result from the predictions of tipsters. Empirical evidence regarding the forecast
+accuracy of tipsters shows that their ability is limited. This homework is about understanding the behaviour of different betting companies and leagues with
+the use of available information from different sources (odds from different betting companies, team
+status and etc.).
 
-Lets start with activating the necessary libraries first:
-```{r library}
+As background for the rest of the formulas and assumptions, please check [this](http://www.it.uu.se/edu/course/homepage/projektTDB/ht15/project16/Project16_Report.pdf) paper by Mirza and Fejes, also statistics of the Premier League seasons provided by [this](http://betamatics.com/) site.
+
+# 2.Libraries
+
+Importing libraries. They mainly used for data handling and plotting.
+
+```{r library, message=FALSE, warning=FALSE}
 library(ggplot2)
 library(tidyverse)
 library(dplyr)
@@ -27,7 +49,7 @@ data19_20 contains 2019-2020 season's data
 data20_21 contains 2020-2021 season's data
 data_league contains all of the data.
 
-```{r import data}
+```{r import data, message=FALSE, warning=FALSE}
 
 data18_19 = fread("C:/users/Kaan/Desktop/Master/Data_Mining/HW1/18-19.CSV", select = 2:56)
 data19_20 = fread("C:/users/Kaan/Desktop/Master/Data_Mining/HW1/19-20.csv", select = 2:56)
@@ -38,37 +60,35 @@ data_league <- bind_rows(data18_19, data19_20, data20_21)
 
 ```
 
-## Plots
+# 3.Analysis and Plots
 
-Histograms for Task 1
 
-Part 1
 
-Task 1a: Histogram for Home Goals
+## 3.1.Task 1
 
-```{r plots, echo=TRUE}
+### 3.1.1.Task A: Histogram for Home Goals
+
+```{r plots, message=FALSE, warning=FALSE}
 ggplot(data=data_league, aes(x=FTHG), binwidth=1) + geom_histogram(col="black", fill="Cyan", alpha = .5) +labs(title="Histogram for Home Goals", x="Home Goals", y="Number of Games")
   
 
 ```
+### 3.1.2.Task B: Histogram for Away Goals
 
-Task 1b: Histogram for Away Goals
-
-```{r plots_2, echo=TRUE}
+```{r plots_2, message=FALSE, warning=FALSE}
 ggplot(data=data_league, aes(x=FTAG), binwidth=1) + geom_histogram(col="black",fill="dark blue", alpha = .5) + 
   labs(title="Histogram for Away Goals", x="Away Goals", y="Number of Games") 
 ```
+### 3.1.3.Task C: Histogram for Home - Away Goals
 
-Task 1c: Histogram for Home - Away Goals
-
-```{r plots_3, echo=TRUE}
+```{r plots_3, message=FALSE, warning=FALSE}
 ggplot(data_league) + geom_histogram(aes(x = FTHG-FTAG), binwidth=1, col="black", fill="orange") + xlab("Home Goals – Away Goals") + ylab("Number of Games") + theme(plot.caption=element_text(hjust = 0.5))
 ```
 
-Part 2: Density curve added to Home Goals and Away Goals Histograms in order to see if they show Poisson distribution characteristics
+#### 3.1.3.1.Task C Bonus: Poisson Distribution Similarity Check
 
 
-```{r plots_4}
+```{r plots_4, message=FALSE, warning=FALSE}
 #sample mean calculations and lenght
 
 lambda_hg= mean(data_league$FTHG,trim=0,na.rm=T)
@@ -92,14 +112,12 @@ p2=ggplot(data_league,aes(FTAG)) + geom_histogram(aes(fill="Away Goals"),binwidt
 grid.arrange(p1,p2,ncol=2)
 ```
 
-
-
-Task 2
+## 3.2.Task 2: Analysis of Bookmakers Draw Bet Odds 
 
 For this task I choose (B365H, B365D, B365A) , (BWH, BWD, BWA) , (IWH, IWD, IWA) and (PSH, PSD, PSA) as Bookmakers. 
 
 Let's calculate the P(Home Win), P(Draw) and P(Away Win) for selected bet options:
-```{r setup_1, echo = TRUE}
+```{r setup_1, message=FALSE, warning=FALSE}
 data_league$prob_B365H <- 1/(data_league$B365H)
 data_league$prob_B365D <- 1/(data_league$B365D)
 data_league$prob_B365A <- 1/(data_league$B365A)
@@ -117,7 +135,7 @@ data_league$prob_PSA <- 1/(data_league$PSA)
 data_league$prob_PSD <- 1/(data_league$PSD)
 ```
 
-```{r setup_2, echo = TRUE}
+```{r setup_2, message=FALSE, warning=FALSE}
 
 data_league %>%
   colnames()
@@ -125,7 +143,7 @@ data_league %>%
 
 Normalization of the previous odds:
 
-```{r setup_3, echo = TRUE}
+```{r setup_3, message=FALSE, warning=FALSE}
 
 #Normalized B365:
 data_league$N_prob_B365H <- data_league$prob_B365H/(data_league$prob_B365H + data_league$prob_B365D + data_league$prob_B365A)
@@ -148,7 +166,7 @@ data_league$N_prob_PSA <- data_league$prob_PSA/(data_league$prob_PSH + data_leag
 data_league$N_prob_PSD <- data_league$prob_PSD/(data_league$prob_PSH + data_league$prob_PSA + data_league$prob_PSD)
 ```
 
-```{r setup_4, echo = TRUE}
+```{r setup_4, message=FALSE, warning=FALSE}
 data_league %>%
   colnames()
 ```
@@ -156,7 +174,7 @@ data_league %>%
 Discretization and Plotting for Task 2.3:
 
 BET 365:
-```{r setup_5, echo = TRUE}
+```{r setup_5, message=FALSE, warning=FALSE}
 #FTR
 data_league = data_league %>%
   mutate(FTR_tie = ifelse(FTR == 'D', 1, 0)) %>%
@@ -193,7 +211,7 @@ p3
 
 For BW:
 
-```{r setup_6, echo = TRUE}
+```{r setup_6, message=FALSE, warning=FALSE}
 #BW
 data_league = data_league %>%
   mutate(FTR_tie = ifelse(FTR == 'D', 1, 0)) %>%
@@ -230,7 +248,7 @@ p4
 
 For IW: 
 
-```{r setup_7, echo = TRUE}
+```{r setup_7, message=FALSE, warning=FALSE}
 #For IW:
 data_league = data_league %>%
   mutate(FTR_tie = ifelse(FTR == 'D', 1, 0)) %>%
@@ -266,7 +284,7 @@ p5
 ```
 
 For PS:
-```{r setup_8, echo = TRUE}
+```{r setup_8, message=FALSE, warning=FALSE}
 #For PS:
 data_league = data_league %>%
   mutate(FTR_tie = ifelse(FTR == 'D', 1, 0)) %>%
@@ -303,16 +321,15 @@ grid.arrange(p3,p4,p5,p6,ncol=2)
 
 ```
 
-Results for Task 2: 
+### 3.2.1.Results and Discussion
 4 Bookmakers are selected and the results shows us there is a bias between calculated draw probability and actual draw probability. 
 
 
-TASK 3: 
+## 3.3.Task 3: Effect of the Noise 
 
-Effect of the Red Cards:
+Effect of the noise analyzed in this section. Noise in this analyze selected as Red Card.
 
-
-```{r setup_9, echo = TRUE}
+```{r setup_9, message=FALSE, warning=FALSE}
 #Red Card for B365:
 data_RED = data_league %>%
   filter(HR + AR == 0)
@@ -351,7 +368,7 @@ p7 <- ggplot() + geom_point(aes(x = N_prob_B365H - N_prob_B365A, y = drawB365), 
 grid.arrange(p3,p7,ncol=2)
 ```
 For BW:
-```{r setup_10, echo = TRUE}
+```{r setup_10, message=FALSE, warning=FALSE}
 data_RED = data_league %>%
   filter(HR + AR == 0)
 
@@ -388,7 +405,7 @@ p8 <- ggplot() + geom_point(aes(x = N_prob_BWH - N_prob_BWA, y = drawBW), data =
 grid.arrange(p4,p8,ncol=2)
 ```
 For IW:
-```{r setup_11, echo = TRUE}
+```{r setup_11, message=FALSE, warning=FALSE}
 data_RED = data_league %>%
   filter(HR + AR == 0)
 
@@ -425,7 +442,7 @@ p9 <- ggplot() + geom_point(aes(x = N_prob_IWH - N_prob_IWA, y = drawIW), data =
 grid.arrange(p5,p9,ncol=2)
 ```
 For PS:
-```{r setup_12, echo = TRUE}
+```{r setup_12, message=FALSE, warning=FALSE}
 data_RED = data_league %>%
   filter(HR + AR == 0)
 
@@ -462,12 +479,12 @@ p10 <- ggplot() + geom_point(aes(x = N_prob_PSH - N_prob_PSA, y = drawPS), data 
 grid.arrange(p6,p10,ncol=2)
 ```
 
-```{r setup_18, echo = TRUE}
+```{r setup_18, message=FALSE, warning=FALSE}
 
 # total plots for no red cards
 grid.arrange(p7,p8,p9,p10,ncol=2)
 ```
 
-Results for Task 3:
+### 3.3.1.Results and Discussion
 
 Generally minimum and maximum calculated draw probabilities are changed. 
