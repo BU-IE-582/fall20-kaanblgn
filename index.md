@@ -1,4 +1,4 @@
-# Welcome to Kaan Bilgin
+# Welcome to Kaan Bilgin Progress Journal
 
 This is my Progress Journal Website created for IE 582 course at Bogazici University.
 
