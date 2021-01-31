@@ -14,3 +14,9 @@ There will be the assignments done for this course.
 
 ### Homework Assignment 2
 - [Dimensionality Reduction of Time Series Data For Classification of uWaveGesturesLibrary](files/HW2/HW2.html)
+
+### Homework Assignment 3
+- Will be updated
+
+### Homework Assignment 4
+- [Data Mining on Four Sets of Data with Lasso Regression, Tree Based Approaches and SGB](files/HW4/HW4_Kaan_Bilgin.html): Data Anaylsis on four unique real life data sets using CART, xgBoost and cv.glmnet 
