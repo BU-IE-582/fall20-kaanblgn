@@ -638,3 +638,11 @@ Even tough some classes(gestures in a sense) can be seperable by looking at it, 
 
 
 
+
+
+
+
+
+
+Press [here](https://bu-ie-582.github.io/fall20-kaanblgn/) to return to homepage.
+

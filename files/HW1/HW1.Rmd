@@ -488,3 +488,6 @@ grid.arrange(p7,p8,p9,p10,ncol=2)
 ### 3.3.1.Results and Discussion
 
 Generally minimum and maximum calculated draw probabilities are changed. 
+
+
+Press [here](https://bu-ie-582.github.io/fall20-kaanblgn/) to return to homepage.
