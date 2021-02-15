@@ -20,3 +20,6 @@ There will be the assignments done for this course.
 
 ### Homework Assignment 4
 - [Data Mining on Four Sets of Data with Lasso Regression, Tree Based Approaches and SGB](files/HW4/HW4_Kaan_Bilgin.html): Data Anaylsis on four unique real life data sets using CART, xgBoost and cv.glmnet 
+
+### IE 582 Project Assignment
+- Classification Approaches Project: Different data mining techniques applied in order to build a proper classification model, you can access code from [here](files/Project/codes_final.R).
