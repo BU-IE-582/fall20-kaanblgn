@@ -26,6 +26,6 @@ There will be the assignments done for this course.
 
 #### Kaan Bilgin Bachelor Projects
 
-- [Reduced Beam Section Design Using MATLAB] (files/RBS.html)
+- [Reduced Beam Section Design Using MATLAB](files/RBS.html)
 
-- [Senior Design Project: Seismic Design of Steel Special Moment Frames] (files/Bilgink_Senior_Design_Project_Final.html)
+- [Senior Design Project: Seismic Design of Steel Special Moment Frames](files/Bilgink_Senior_Design_Project_Final.html)
