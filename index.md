@@ -23,9 +23,3 @@ There will be the assignments done for this course.
 
 ### IE 582 Project Assignment
 - Classification Approaches Project: Different data mining techniques applied in order to build a proper classification model, you can access code from [here](files/Project/codes_final.R).
-
-#### Kaan Bilgin Bachelor Projects
-
-- [Reduced Beam Section Design Using MATLAB](files/RBS.html)
-
-- [Senior Design Project: Seismic Design of Steel Special Moment Frames](files/Bilgink_Senior_Design_Project_Final.html)
